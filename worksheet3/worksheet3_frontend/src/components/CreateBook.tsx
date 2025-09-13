@@ -13,12 +13,12 @@ const CreateBookComponent = () => {
   };
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+    event.preventDefault();
     console.log(book);
     fetch("http://localhost:8082/api/books", {
-      method: 'POST', 
-      headers: {"Content-Type": "application/json"}, 
-      body: JSON.stringify(book)
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(book),
     })
       .then((res) => {
         console.log(res);
@@ -27,7 +27,7 @@ const CreateBookComponent = () => {
         navigate.push("/");
       })
       .catch((err) => {
-        console.log('来自CreateBook的错误: ' + err);
+        console.log("来自CreateBook的错误: " + err);
       });
   };
 
@@ -44,7 +44,7 @@ const CreateBookComponent = () => {
           <div className="col-md-10 m-auto">
             <h1 className="display-4 text-center">添加书籍</h1>
             <p className="lead text-center">创建新书籍</p>
-            <form noValidate onSubmit={onSubmit}>
+            <form onSubmit={onSubmit}>
               <div className="form-group">
                 <input
                   type="text"
@@ -95,7 +95,11 @@ const CreateBookComponent = () => {
                   placeholder="出版日期"
                   name="published_date"
                   className="form-control"
-                  value={book.published_date?.toString()}
+                  value={
+                    book.published_date
+                      ? book.published_date.toString().slice(0, 10)
+                      : ""
+                  } // 保证为字符串
                   onChange={onChange}
                 />
               </div>
