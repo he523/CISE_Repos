@@ -24,10 +24,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd worksheet2/my-nest-app
+        npm install
 
     - name: Run the tests
-      run: npm test
+      run: |
+        cd worksheet2/my-nest-app
+        npm test
 
     - name: Build
-      run: npm run build
+      run: |
+        cd worksheet2/my-nest-app
+        npm run build
