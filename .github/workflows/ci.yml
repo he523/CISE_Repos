@@ -26,11 +26,12 @@ jobs:
     - name: Install dependencies
       run: |
         cd worksheet2/my-nest-app
-        npm install
+        npm ci
 
     - name: Run the tests
       run: |
         cd worksheet2/my-nest-app
+        npx ts-jest config:init
         npm test
 
     - name: Build
