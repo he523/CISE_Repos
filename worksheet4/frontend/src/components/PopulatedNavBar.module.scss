@@ -1,0 +1,12 @@
+// 用户头像容器样式（暂未使用，预留）
+.user_container {
+  position: absolute;
+  aspect-ratio: 1; // 宽高比1:1（圆形）
+  backdrop-filter: brightness(50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  border-radius: 100%; // 圆形边框
+  left: 1em;
+}

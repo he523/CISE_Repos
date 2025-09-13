@@ -1,0 +1,35 @@
+// 表单容器样式
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 30em; // 表单最大宽度
+}
+
+// 表单输入项基础样式
+.formItem {
+  padding: 1em;
+  margin: 1em 0;
+  flex-grow: 1; // 占满可用宽度
+}
+
+// 文本域样式（继承.formItem）
+.formTextArea {
+  @extend .formItem;
+  min-height: 8em; // 文本域最小高度
+}
+
+// 数组项容器样式（用于多作者输入等场景）
+.arrayItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch; // 子项拉伸填满容器
+}
+
+// 按钮样式
+.buttonItem {
+  width: 3rem;
+  height: 3rem;
+  flex-grow: 0; // 不自动拉伸
+  font-size: 1.5em; // 按钮文字大小
+}

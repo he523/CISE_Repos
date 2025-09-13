@@ -1,0 +1,70 @@
+// 导航栏容器样式
+.navbar {
+  display: flex;
+  position: relative;
+  top: 0;
+  flex-direction: row;
+  width: 100%;
+  background-color: darkblue; // 深蓝色背景
+  align-items: center;
+  color: aliceblue; // 浅蓝色文字
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: top 0.5s; // 顶部位置过渡动画
+  height: fit-content; // 高度适应内容
+}
+
+// 导航栏隐藏样式（用于滚动时隐藏）
+.hide {
+  top: -3em;
+}
+
+// 基础导航项样式
+.navitem {
+  position: relative;
+  padding: 1em;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: default; // 默认鼠标样式（不可点击）
+  white-space: nowrap; // 禁止文字换行
+}
+
+// 可点击导航项样式（继承.navitem）
+.clickable {
+  @extend .navitem;
+  cursor: pointer; // 鼠标悬停为指针样式（可点击）
+}
+
+// 可点击导航项 hover 效果
+.clickable:hover {
+  backdrop-filter: brightness(50%); // 背景亮度降低50%
+}
+
+// 下拉菜单容器样式（默认隐藏）
+.dropdown_container {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: darkblue; // 与导航栏背景一致
+  position: absolute;
+  top: 100%; // 位于导航项正下方
+  right: 0;
+}
+
+// 包含下拉菜单的导航项 hover 效果
+.dropdown:hover {
+  cursor: pointer;
+  backdrop-filter: brightness(50%);
+
+  //  hover 时显示下拉菜单
+  .dropdown_container {
+    visibility: visible;
+  }
+}
+
+// 导航栏末尾项样式（右对齐）
+.end {
+  margin-left: auto;
+}
