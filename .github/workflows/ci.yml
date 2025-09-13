@@ -23,10 +23,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
+    - name: Clean install
       run: |
         cd worksheet2/my-nest-app
-        npm ci
+        rm -rf node_modules package-lock.json
+        npm install
 
     - name: Run the tests
       run: |
