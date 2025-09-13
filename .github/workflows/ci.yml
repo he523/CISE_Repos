@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
     - name: Checkout repository
@@ -32,7 +32,6 @@ jobs:
     - name: Run the tests
       run: |
         cd worksheet2/my-nest-app
-        npx ts-jest config:init
         npm test
 
     - name: Build
